@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Pesca Submarina · Catalunya</title>
+<meta name="description" content="Guía de pesca submarina en apnea con arpón en la costa catalana: especies, zonas, reservas marinas y normativa vigente.">
+<style>
+:root{
+  --azul-profundo:#0a2540;
+  --azul-mar:#1565a0;
+  --azul-claro:#4fc3f7;
+  --arena:#f4ecd8;
+  --coral:#ff6b5b;
+  --rojo:#d32f2f;
+  --verde:#2e7d32;
+  --ambar:#f5a623;
+  --gris:#5a6470;
+  --gris-claro:#eceff1;
+  --blanco:#ffffff;
+  --sombra:0 4px 16px rgba(10,37,64,.12);
+  --radio:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--azul-profundo);
+  background:var(--arena);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--azul-mar)}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--azul-profundo) 0%,var(--azul-mar) 100%);
+  color:var(--blanco);
+  padding:1.5rem 1rem 1rem;
+  position:sticky;top:0;z-index:50;
+  box-shadow:var(--sombra);
+}
+.header-inner{max-width:1200px;margin:0 auto}
+header h1{font-size:1.3rem;letter-spacing:-.5px;display:flex;align-items:center;gap:.5rem}
+header h1 .icono{font-size:1.6rem}
+header .sub{font-size:.8rem;opacity:.85;margin-top:.2rem}
+nav{margin-top:.8rem;display:flex;gap:.4rem;flex-wrap:wrap}
+nav a{
+  color:var(--blanco);text-decoration:none;
+  padding:.4rem .8rem;border:1px solid rgba(255,255,255,.3);
+  border-radius:99px;font-size:.85rem;font-weight:500;
+  transition:background .15s;
+}
+nav a:hover{background:rgba(255,255,255,.15)}
+
+/* LAYOUT */
+main{max-width:1200px;margin:0 auto;padding:1.5rem 1rem 3rem}
+section{margin-bottom:3rem;scroll-margin-top:140px}
+section h2{
+  font-size:1.6rem;margin-bottom:1rem;
+  border-bottom:3px solid var(--azul-claro);
+  padding-bottom:.4rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+section h3{font-size:1.15rem;margin:1.5rem 0 .8rem;color:var(--azul-mar)}
+p{margin-bottom:.8rem}
+
+/* INTRO / AVISOS */
+.aviso{
+  background:#fff8e1;border-left:5px solid var(--ambar);
+  padding:1rem 1.2rem;border-radius:var(--radio);
+  margin-bottom:1.2rem;font-size:.95rem;
+}
+.aviso strong{color:#b87b00}
+.aviso-rojo{
+  background:#ffebee;border-left-color:var(--rojo);
+}
+.aviso-rojo strong{color:var(--rojo)}
+
+/* NORMATIVA */
+.norm-grid{
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.norm-card{
+  background:var(--blanco);padding:1rem 1.2rem;
+  border-radius:var(--radio);box-shadow:var(--sombra);
+  border-top:4px solid var(--azul-mar);
+}
+.norm-card h4{font-size:1rem;margin-bottom:.5rem;color:var(--azul-mar)}
+.norm-card ul{padding-left:1.2rem;font-size:.9rem}
+.norm-card li{margin-bottom:.3rem}
+
+/* CONTROLES (buscador) */
+.controles{
+  display:flex;gap:.6rem;flex-wrap:wrap;
+  margin-bottom:1rem;align-items:center;
+}
+.controles input{
+  flex:1;min-width:200px;
+  padding:.6rem .9rem;border:1px solid #cfd8dc;
+  border-radius:99px;font-size:.95rem;
+  background:var(--blanco);
+}
+.controles input:focus{outline:2px solid var(--azul-claro);border-color:var(--azul-claro)}
+.chip{
+  padding:.4rem .8rem;border:1px solid #cfd8dc;
+  background:var(--blanco);border-radius:99px;
+  font-size:.85rem;cursor:pointer;
+}
+.chip.activo{background:var(--azul-mar);color:var(--blanco);border-color:var(--azul-mar)}
+
+/* GRID ESPECIES */
+.grid{
+  display:grid;gap:1rem;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+}
+@media (min-width:600px){.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.2rem}}
+@media (min-width:900px){.grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+
+.card{
+  background:var(--blanco);border-radius:var(--radio);
+  overflow:hidden;box-shadow:var(--sombra);
+  cursor:pointer;transition:transform .15s,box-shadow .15s;
+  display:flex;flex-direction:column;
+  position:relative;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(10,37,64,.18)}
+.card:focus-visible{outline:3px solid var(--azul-claro);outline-offset:2px}
+.card-img-wrap{display:block;width:100%;aspect-ratio:4/3;background:#cfd8dc;overflow:hidden}
+.card-img{
+  width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;background:#cfd8dc;
+}
+.card-img.placeholder{
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#90caf9,#1565a0);
+  color:white;font-size:2.5rem;
+}
+.card-body{padding:.7rem .9rem;flex:1;display:flex;flex-direction:column;gap:.15rem}
+.card-nombre{font-weight:600;font-size:1rem;color:var(--azul-profundo)}
+.card-cientifico{font-style:italic;font-size:.78rem;color:var(--gris)}
+.card-catalan{font-size:.75rem;color:var(--azul-mar);margin-top:.1rem}
+.badge-warn{
+  position:absolute;top:.5rem;right:.5rem;
+  background:var(--ambar);color:white;
+  padding:.15rem .5rem;border-radius:99px;
+  font-size:.7rem;font-weight:600;
+}
+
+/* SPOTS */
+.tramo{
+  background:var(--blanco);border-radius:var(--radio);
+  padding:1.2rem;box-shadow:var(--sombra);margin-bottom:1rem;
+  border-left:5px solid var(--azul-mar);
+}
+.tramo h3{margin-top:0}
+.tramo-meta{font-size:.85rem;color:var(--gris);margin-bottom:.7rem}
+.tramo p{font-size:.95rem}
+.tramo .especies-tags{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.3rem}
+.tag{
+  background:#e3f2fd;color:var(--azul-mar);
+  padding:.2rem .6rem;border-radius:99px;font-size:.75rem;
+  cursor:pointer;border:1px solid transparent;
+}
+.tag:hover{border-color:var(--azul-mar)}
+
+.reserva{
+  background:#ffebee;border-left:5px solid var(--rojo);
+  padding:1rem 1.2rem;border-radius:var(--radio);
+  margin-bottom:.8rem;box-shadow:var(--sombra);
+}
+.reserva h4{
+  color:var(--rojo);font-size:1.05rem;margin-bottom:.3rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+.reserva-meta{font-size:.8rem;color:var(--gris);margin-bottom:.4rem}
+.reserva p{font-size:.9rem;margin-bottom:0}
+
+/* MODAL */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(10,37,64,.78);
+  display:none;align-items:flex-start;justify-content:center;
+  z-index:100;padding:1rem;overflow-y:auto;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:var(--blanco);border-radius:var(--radio);
+  max-width:600px;width:100%;margin:2rem auto;
+  overflow:hidden;position:relative;
+  animation:slideUp .25s ease;
+}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#cfd8dc}
+.modal-img.placeholder{
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#90caf9,#1565a0);
+  color:white;font-size:5rem;
+}
+.modal-close{
+  position:absolute;top:.6rem;right:.6rem;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(0,0,0,.5);color:white;border:none;
+  font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.modal-close:hover{background:rgba(0,0,0,.75)}
+.modal-body{padding:1.2rem 1.4rem 1.5rem}
+.modal-body h3{
+  font-size:1.5rem;margin-bottom:.1rem;color:var(--azul-profundo);
+}
+.modal-body .cientifico{
+  font-style:italic;color:var(--gris);font-size:.9rem;margin-bottom:.2rem;
+}
+.modal-body .catalan{font-size:.85rem;color:var(--azul-mar);margin-bottom:1rem}
+.modal-warn{
+  background:#fff8e1;border-left:4px solid var(--ambar);
+  padding:.6rem .9rem;border-radius:6px;margin-bottom:1rem;
+  font-size:.85rem;
+}
+.ficha{display:grid;gap:.6rem}
+.ficha-row{
+  display:grid;grid-template-columns:130px 1fr;gap:.6rem;
+  padding:.5rem 0;border-bottom:1px solid var(--gris-claro);
+  font-size:.92rem;
+}
+.ficha-row:last-child{border-bottom:none}
+.ficha-row dt{font-weight:600;color:var(--gris)}
+.ficha-row dd{color:var(--azul-profundo)}
+@media (max-width:480px){
+  .ficha-row{grid-template-columns:1fr;gap:.1rem}
+  .ficha-row dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
+}
+.modal-foto-credit{
+  font-size:.7rem;color:var(--gris);text-align:right;
+  padding:.3rem .9rem;background:#f5f5f5;
+}
+
+/* FUENTES */
+#fuentes ul{padding-left:1.2rem;font-size:.9rem}
+#fuentes li{margin-bottom:.4rem}
+
+footer{
+  text-align:center;padding:2rem 1rem;
+  font-size:.85rem;color:var(--gris);
+  border-top:1px solid #cfd8dc;
+}
+
+/* UTIL */
+.hidden{display:none !important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1><span class="icono">🔱</span> Guía de Pesca Submarina · Catalunya</h1>
+    <div class="sub">Apnea con arpón · costa catalana · normativa 2025</div>
+    <nav>
+      <a href="#normativa">Normativa</a>
+      <a href="#especies">Especies</a>
+      <a href="#spots">Zonas y spots</a>
+      <a href="#reservas">Reservas (prohibido)</a>
+      <a href="#fuentes">Fuentes</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="intro">
+  <div class="aviso">
+    <strong>⚠️ Aviso importante:</strong> Esta guía es informativa y educativa. La normativa, las tallas mínimas y los límites de las reservas marinas <strong>cambian con frecuencia</strong>. Antes de salir al mar verifica siempre la información en fuentes oficiales (Generalitat, capitanía marítima) y comprueba los avisos meteorológicos. La pesca submarina conlleva riesgos: practícala formado, acompañado y con material en buen estado.
+  </div>
+  <div class="aviso aviso-rojo">
+    <strong>🚫 Reservas marinas:</strong> Existen 5 zonas en Catalunya donde la pesca submarina está totalmente prohibida. Consúltalas <a href="#reservas">aquí</a> antes de elegir un spot.
+  </div>
+  <p style="font-size:.9rem;color:var(--gris)">
+    Los datos marcados con <span style="background:var(--ambar);color:#fff;padding:.1rem .4rem;border-radius:99px;font-size:.7rem;font-weight:600">⚠ revisar</span> no han podido contrastarse al 100% con fuentes oficiales y deben tomarse como orientativos.
+  </p>
+</section>
+
+<section id="normativa">
+  <h2>📋 Normativa esencial</h2>
+  <p>Resumen de las obligaciones para practicar pesca submarina recreativa en aguas catalanas. Consulta el <a href="https://agricultura.gencat.cat/" target="_blank" rel="noopener">DAR de la Generalitat</a> para la versión oficial.</p>
+
+  <div class="norm-grid">
+    <div class="norm-card">
+      <h4>📄 Licencia y seguro</h4>
+      <ul>
+        <li>Licencia recreativa submarina <strong>obligatoria</strong> (Generalitat, renovación anual).</li>
+        <li>Licencia federativa FECDAS (incluye seguro de RC y permiso de arma submarina).</li>
+        <li>Declaración responsable de salud (sustituye el certificado médico desde 2025).</li>
+      </ul>
+    </div>
+    <div class="norm-card">
+      <h4>🕐 Horario y modalidad</h4>
+      <ul>
+        <li>Permitida <strong>de sol a sol</strong> (no nocturna).</li>
+        <li>Solo <strong>a pulmón libre</strong> (apnea). Prohibido cualquier equipo autónomo o asistido.</li>
+        <li>Prohibidos los scooters/propulsores submarinos.</li>
+        <li>Edad mínima: 16 años (federativa).</li>
+      </ul>
+    </div>
+    <div class="norm-card">
+      <h4>🎯 Material</h4>
+      <ul>
+        <li>Fusil cargado <strong>solo dentro del agua</strong>.</li>
+        <li>Boya de señalización <strong>obligatoria</strong>; no alejarse más de 25 m de ella.</li>
+        <li>Linternas pequeñas permitidas; focos potentes prohibidos.</li>
+        <li>Prohibidas puntas explosivas o de cualquier tipo distinto de las flechas estándar.</li>
+      </ul>
+    </div>
+    <div class="norm-card">
+      <h4>📏 Cupos (aguas interiores)</h4>
+      <ul>
+        <li>Máximo <strong>10 kg/día</strong> de peces.</li>
+        <li>Máximo <strong>5 kg/día</strong> de cefalópodos.</li>
+        <li>En aguas exteriores: <strong>5 kg/día</strong> totales.</li>
+        <li>Cuotas adicionales por especie (ver tabla en cada ficha).</li>
+      </ul>
+    </div>
+    <div class="norm-card">
+      <h4>🚫 Especies prohibidas</h4>
+      <ul>
+        <li>Atún rojo, pez espada, merluza.</li>
+        <li>Cualquier tiburón y todos los cetáceos.</li>
+        <li>Corales y especies protegidas (nacre, lapa ferruginosa, etc.).</li>
+      </ul>
+    </div>
+    <div class="norm-card">
+      <h4>📍 Restricciones de zona</h4>
+      <ul>
+        <li>Distancia mínima de <strong>100 m</strong> respecto a artes de pesca legales y bañistas.</li>
+        <li>Prohibida en puertos, zonas de baño balizadas y reservas marinas.</li>
+        <li>Prohibido transportar el fusil cargado fuera del agua.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="margin-top:1rem;font-size:.85rem;color:var(--gris)">
+    Cuotas concretas (ej.: 7 doradas, 3 lubinas, 2 meros, 15 sepias) y tallas mínimas se fijan en la <strong>Resolución ARP/3311/2025</strong>. Las tallas indicadas en las fichas de especies provienen principalmente de esa resolución y de la guía de pesca recreativa de la Generalitat.
+  </p>
+</section>
+
+<section id="especies">
+  <h2>🐟 Especies</h2>
+  <p>Las especies más representativas de la costa catalana para la pesca submarina. Haz click en cualquier tarjeta para ver la ficha detallada.</p>
+
+  <div class="controles">
+    <input type="search" id="buscador" placeholder="Buscar especie (nombre común, catalán o científico)..." aria-label="Buscar especie">
+    <button class="chip activo" data-filtro="todas">Todas</button>
+    <button class="chip" data-filtro="esparidos">Espáridos</button>
+    <button class="chip" data-filtro="serranidos">Serránidos</button>
+    <button class="chip" data-filtro="pelagicos">Pelágicos</button>
+    <button class="chip" data-filtro="roca">Bentónicos/Roca</button>
+    <button class="chip" data-filtro="cefalopodos">Cefalópodos</button>
+  </div>
+
+  <div id="grid-especies" class="grid"></div>
+</section>
+
+<section id="spots">
+  <h2>🗺️ Zonas de pesca por tramos de costa</h2>
+  <p>La costa catalana tiene ~580 km de litoral con perfiles muy distintos. Esta guía describe <strong>zonas generales</strong> y sus características; no publica spots concretos por respeto a la comunidad y al recurso. La regla de oro: explora, respeta las tallas, no te lleves más de lo que vas a consumir.</p>
+
+  <div id="grid-spots"></div>
+</section>
+
+<section id="reservas">
+  <h2 style="border-bottom-color:var(--rojo)">🚫 Reservas marinas — pesca prohibida</h2>
+  <div class="aviso aviso-rojo">
+    <strong>Importante:</strong> Pescar dentro de una reserva marina, incluso por error, conlleva sanciones graves (multas de hasta 60.000€, retirada de licencia, decomiso de material). Antes de bajar al agua, verifica los <strong>límites exactos</strong> en cartas náuticas y boyas de señalización. Los polígonos de cada reserva pueden incluir varias subzonas con regulaciones diferentes.
+  </div>
+  <div id="grid-reservas"></div>
+</section>
+
+<section id="fuentes">
+  <h2>📚 Fuentes y bibliografía</h2>
+  <p>Esta guía se ha compilado contrastando información de las siguientes fuentes. Para datos críticos (normativa, tallas, reservas) consulta siempre la versión oficial vigente.</p>
+  <ul>
+    <li><a href="https://agricultura.gencat.cat/" target="_blank" rel="noopener">Departament d'Acció Climàtica, Alimentació i Agenda Rural — Generalitat de Catalunya</a> (normativa oficial).</li>
+    <li><a href="https://noticias.juridicas.com/base_datos/CCAA/971631-r-arp-3311-2025-de-5-sep-ca-cataluna-fija-las-tallas-minimas-de-captura.html" target="_blank" rel="noopener">Resolución ARP/3311/2025 — tallas mínimas de captura</a>.</li>
+    <li><a href="https://web.gencat.cat/es/actualitat/detall/Nou-model-de-pesca-sostenible-a-tot-el-litoral-catala" target="_blank" rel="noopener">Nuevo modelo de pesca sostenible en el litoral catalán — gencat.cat</a>.</li>
+    <li><a href="https://apsbarcelona.com/faq/" target="_blank" rel="noopener">APS — Associació de Pesca Submarina de Barcelona (FAQ)</a>.</li>
+    <li><a href="https://aesneptuno.org/normativa-pesca/" target="_blank" rel="noopener">A.E.S. Neptuno — normativa pesca submarina</a>.</li>
+    <li><a href="https://www.societatpescadorsbarcelona.com/es/normatives-de-pesca-maritima-a-catalunya/" target="_blank" rel="noopener">Societat de Pescadors de Barcelona — normativas</a>.</li>
+    <li><a href="https://magazine.clubnauticcambrils.com/la-generalitat-publica-la-guia-de-especies-de-la-pesca-recreativa-en-la-costa-catalana/?lang=es" target="_blank" rel="noopener">Guía de especies de pesca recreativa de la costa catalana (Generalitat)</a>.</li>
+    <li><a href="https://www.fishbase.se/" target="_blank" rel="noopener">FishBase</a> (biología de especies, hábitat, rangos de talla).</li>
+    <li><a href="https://es.wikipedia.org/" target="_blank" rel="noopener">Wikipedia — fichas de especies marinas mediterráneas</a>.</li>
+    <li><a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (fotografías; cada imagen con su licencia y autor).</li>
+    <li><a href="https://www.miteco.gob.es/es/costas/temas/proteccion-medio-marino/biodiversidad-marina/espacios-marinos-protegidos/red-reservas-marinas-espana.html" target="_blank" rel="noopener">MITECO — Red de Reservas Marinas de España</a>.</li>
+  </ul>
+</section>
+
+</main>
+
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+  <div class="modal" id="modal-contenido">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    <div id="modal-img-wrap"></div>
+    <div class="modal-body">
+      <h3 id="modal-titulo"></h3>
+      <div class="cientifico" id="modal-cientifico"></div>
+      <div class="catalan" id="modal-catalan"></div>
+      <div id="modal-warn-wrap"></div>
+      <dl class="ficha" id="modal-ficha"></dl>
+    </div>
+    <div class="modal-foto-credit" id="modal-credit"></div>
+  </div>
+</div>
+
+<footer>
+  <p>Guía elaborada con fines informativos · 2026 · Pesca con respeto. Suelta los ejemplares pequeños y los reproductores.</p>
+</footer>
+
+<script>
+/* ============================================================
+   DATOS — ESPECIES
+   Fuentes cruzadas: gencat / Resolución ARP/3311/2025 / FishBase / Wikipedia / APS Barcelona.
+   ⚠ Campos marcados como "no verificado al 100%" se indican con verificado:false en datos críticos
+   (rango de peso, comportamiento). Tallas mínimas, cuando se indican, provienen de fuentes oficiales.
+   Fotos: Wikimedia Commons (licencias libres CC-BY-SA / CC-BY / dominio público).
+   Si una imagen falla en cargarse, se muestra placeholder.
+============================================================ */
+const ESPECIES = [
+  // ESPÁRIDOS
+  {
+    id:"dorada", grupo:"esparidos",
+    nombre:"Dorada", catalan:"Orada", cientifico:"Sparus aurata",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sparus_aurata_Sardegna.jpg/640px-Sparus_aurata_Sardegna.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Fondos arenosos, praderas de posidonia y zonas mixtas. De 0 a 30 m, también en lagunas y bocas de río.",
+    pesoRango:"0,5 – 4 kg habitualmente; ejemplares trofeo hasta 7 kg.",
+    tallaMinima:"20 cm (oficial Catalunya); 30 cm en cupos de captura por ejemplar.",
+    cuota:"Hasta 7 ejemplares/día (≥30 cm) según ARP/3311/2025.",
+    epoca:"Todo el año; pico septiembre–noviembre.",
+    carne:"Excelente — blanca, firme, muy apreciada. Una de las mejores capturas de la zona.",
+    dificultad:"Media-alta. Muy desconfiada, oído y vista finísimos.",
+    tecnica:"Espera al fondo cerca de matas de posidonia o canales; aproximación silenciosa, sin movimientos bruscos.",
+    verificado:true
+  },
+  {
+    id:"lubina", grupo:"esparidos",
+    nombre:"Lubina (Llobarro)", catalan:"Llobarro", cientifico:"Dicentrarchus labrax",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Dicentrarchus_labrax_Sardinia.jpg/640px-Dicentrarchus_labrax_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Zonas batidas, escolleras, bocas de puerto, desembocaduras. Aguanta agua dulce.",
+    pesoRango:"1 – 5 kg lo habitual; trofeos hasta 10 kg.",
+    tallaMinima:"36 cm (estatal); 40 cm para cupo recreativo según ARP/3311/2025.",
+    cuota:"Hasta 3 ejemplares/día (≥40 cm).",
+    epoca:"Otoño–invierno (octubre a febrero) los grandes ejemplares en aguas batidas.",
+    carne:"Excelente, fina, muy valorada en cocina.",
+    dificultad:"Alta. Pez muy esquivo, suele aparecer en agua sucia/batida.",
+    tecnica:"Espera en agujeros junto a rompientes y escolleras; visibilidad reducida es buena pista.",
+    verificado:true
+  },
+  {
+    id:"sargo", grupo:"esparidos",
+    nombre:"Sargo común", catalan:"Sard", cientifico:"Diplodus sargus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Diplodus_sargus_sargus.jpg/640px-Diplodus_sargus_sargus.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca y piedra a poca profundidad (2–25 m), zonas batidas.",
+    pesoRango:"300 g – 1,5 kg; trofeos >2 kg.",
+    tallaMinima:"23 cm (referencia oficial; verificar versión vigente).",
+    cuota:"Sometido a cupo diario general.",
+    epoca:"Todo el año; mejores capturas en otoño e invierno.",
+    carne:"Muy buena, firme, sabor pronunciado.",
+    dificultad:"Media. Curioso pero rápido en huir.",
+    tecnica:"Espera en rocas batidas y agujeros; aguanta bien en zonas con corriente.",
+    verificado:true
+  },
+  {
+    id:"sargo-picudo", grupo:"esparidos",
+    nombre:"Sargo picudo", catalan:"Morruda", cientifico:"Diplodus puntazzo",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Diplodus_puntazzo_Sardegna.jpg/640px-Diplodus_puntazzo_Sardegna.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca con grietas, escolleras, 5–40 m.",
+    pesoRango:"400 g – 2 kg habitualmente.",
+    tallaMinima:"24 cm (referencia; consultar resolución vigente).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Otoño–invierno principalmente.",
+    carne:"Muy buena, similar al sargo común.",
+    dificultad:"Alta. De los más desconfiados del grupo.",
+    tecnica:"Espera larga junto a grietas; aproximación nula, dejar que se acerque.",
+    verificado:true
+  },
+  {
+    id:"variada", grupo:"esparidos",
+    nombre:"Mojarra / Variada", catalan:"Variada", cientifico:"Diplodus vulgaris",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Diplodus_vulgaris_Sardinia.jpg/640px-Diplodus_vulgaris_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca, praderas y mixtos; 5–50 m. Muy común.",
+    pesoRango:"200 g – 1 kg habitualmente.",
+    tallaMinima:"22 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año.",
+    carne:"Buena, blanca, algo más blanda que sargo.",
+    dificultad:"Baja-media. Suelen ir en grupo, curiosos.",
+    tecnica:"A la caída sobre grupos en mixtos; también a la espera.",
+    verificado:true
+  },
+  {
+    id:"oblada", grupo:"esparidos",
+    nombre:"Oblada", catalan:"Oblada", cientifico:"Oblada melanura",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Oblada_melanura_Sardinia.jpg/640px-Oblada_melanura_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Aguas superficiales, en banco. Muy frecuente cerca de costa.",
+    pesoRango:"200 – 700 g; ejemplares mayores poco frecuentes.",
+    tallaMinima:"17 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano principalmente.",
+    carne:"Decente, algo blanda; aceptable fresca.",
+    dificultad:"Baja. Muy curiosa, fácil de acercar.",
+    tecnica:"En banco a media agua; cualquier técnica funciona.",
+    verificado:true
+  },
+  {
+    id:"salpa", grupo:"esparidos",
+    nombre:"Salpa", catalan:"Salpa", cientifico:"Sarpa salpa",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sarpa_salpa_Tossa_de_Mar.jpg/640px-Sarpa_salpa_Tossa_de_Mar.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Praderas de algas y posidonia (herbívora), 5–15 m.",
+    pesoRango:"300 g – 1,5 kg.",
+    tallaMinima:"15 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano e inicio otoño.",
+    carne:"Mediocre — puede causar intoxicaciones (ictioalineotoxismo) en ciertos meses; muchos pescadores no la consumen.",
+    dificultad:"Baja. Forman bancos grandes, fácil acercamiento.",
+    tecnica:"A la caída sobre el banco en pradera.",
+    verificado:true
+  },
+  {
+    id:"denton", grupo:"esparidos",
+    nombre:"Dentón", catalan:"Déntol", cientifico:"Dentex dentex",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Dentex_dentex_Sardinia.jpg/640px-Dentex_dentex_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca de fondo, secos y veriles entre 15 y 60 m.",
+    pesoRango:"2 – 10 kg; trofeos >15 kg.",
+    tallaMinima:"30 cm (referencia; consultar resolución vigente).",
+    cuota:"Sujeto a cupo general (especie codiciada, vulnerable).",
+    epoca:"Primavera y verano; los grandes ejemplares se aproximan a costa en mayo–julio.",
+    carne:"Excelente — de las más apreciadas del Mediterráneo.",
+    dificultad:"Muy alta. Pez de trofeo, desconfiado, requiere profundidad y experiencia.",
+    tecnica:"Agachons profundos en secos; espera al límite del azul.",
+    verificado:true
+  },
+  {
+    id:"pargo", grupo:"esparidos",
+    nombre:"Pargo", catalan:"Pagre", cientifico:"Pagrus pagrus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Pagrus_pagrus.jpg/640px-Pagrus_pagrus.jpg",
+    fotoCredito:"Wikimedia Commons · dominio público",
+    habitat:"Fondos rocosos y mixtos, 20–80 m.",
+    pesoRango:"1 – 5 kg habitualmente.",
+    tallaMinima:"18 cm (estatal); puede ser superior en Catalunya, verificar.",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año, mejor en aguas más cálidas.",
+    carne:"Excelente, muy apreciada.",
+    dificultad:"Alta. Esquivo, suele estar en profundidad.",
+    tecnica:"Espera profunda en secos rocosos.",
+    verificado:false,
+    nota:"Talla mínima exacta en Catalunya: verificar Resolución ARP/3311/2025."
+  },
+  {
+    id:"herrera", grupo:"esparidos",
+    nombre:"Herrera", catalan:"Mabre", cientifico:"Lithognathus mormyrus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lithognathus_mormyrus_Sardinia.jpg/640px-Lithognathus_mormyrus_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Fondos arenosos costeros, 1–20 m.",
+    pesoRango:"200 – 800 g.",
+    tallaMinima:"20 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano principalmente.",
+    carne:"Buena, blanca y delicada.",
+    dificultad:"Media. En grupos pequeños sobre arena.",
+    tecnica:"A la deriva sobre arena, espera baja.",
+    verificado:true
+  },
+
+  // SERRÁNIDOS
+  {
+    id:"mero", grupo:"serranidos",
+    nombre:"Mero", catalan:"Anfós", cientifico:"Epinephelus marginatus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Epinephelus_marginatus_Tossa.jpg/640px-Epinephelus_marginatus_Tossa.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca con cuevas y oquedades, 10–50 m. Territorial.",
+    pesoRango:"3 – 20 kg; trofeos >30 kg.",
+    tallaMinima:"50 cm (oficial Catalunya).",
+    cuota:"Máximo 2 ejemplares/día (≥50 cm) según ARP/3311/2025.",
+    epoca:"Verano y otoño. Especie con vedas y periodos de protección — consultar antes de salir.",
+    carne:"Excelente, muy apreciada.",
+    dificultad:"Alta. Especie vulnerable (UICN en peligro). Muchos pescadores deportivos defienden no abatirlos.",
+    tecnica:"Espera o agachon sobre cueva con presencia confirmada.",
+    verificado:true,
+    nota:"⚠️ Especie clasificada 'En Peligro' por UICN. Considera no capturarla aunque sea legal en talla."
+  },
+  {
+    id:"escorpora", grupo:"serranidos",
+    nombre:"Cabracho / Escórpora", catalan:"Cap-roig", cientifico:"Scorpaena scrofa",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Scorpaena_scrofa_Marseille.jpg/640px-Scorpaena_scrofa_Marseille.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca y coralígeno, 20–200 m. Camuflada en el fondo.",
+    pesoRango:"500 g – 3 kg.",
+    tallaMinima:"25 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año.",
+    carne:"Excelente — base de suquets y cremas.",
+    dificultad:"Baja-media (si la ves). Muy estática; la dificultad está en localizarla.",
+    tecnica:"Agachon de inspección sobre roca; cuidado con las espinas venenosas al manipularla.",
+    verificado:true
+  },
+
+  // PELÁGICOS COSTEROS
+  {
+    id:"serviola", grupo:"pelagicos",
+    nombre:"Serviola / Lecha", catalan:"Cerviola / Verat imperial", cientifico:"Seriola dumerili",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Seriola_dumerili.jpg/640px-Seriola_dumerili.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Pelágica costera, alrededor de secos y bajos, 5–50 m.",
+    pesoRango:"3 – 25 kg.",
+    tallaMinima:"45 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano y otoño principalmente.",
+    carne:"Muy buena en ejemplares jóvenes; los grandes pueden contener histamina si no se sangran/refrigeran rápido.",
+    dificultad:"Alta. Muy rápida y curiosa pero esquiva.",
+    tecnica:"Espera con braceada o aspetto en secos. Atracción con flasher.",
+    verificado:true
+  },
+  {
+    id:"bonito", grupo:"pelagicos",
+    nombre:"Bonito", catalan:"Bonítol", cientifico:"Sarda sarda",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Sarda_sarda.jpg/640px-Sarda_sarda.jpg",
+    fotoCredito:"Wikimedia Commons · dominio público",
+    habitat:"Pelágico, en bancos. Suele acercarse a costa en bajos.",
+    pesoRango:"1 – 5 kg.",
+    tallaMinima:"25 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Primavera y verano.",
+    carne:"Buena, sangrar bien tras la captura.",
+    dificultad:"Alta. Pasadas rápidas; tiro de oportunidad.",
+    tecnica:"Espera/aspetto sobre bajos; flasher útil.",
+    verificado:true
+  },
+  {
+    id:"caballa", grupo:"pelagicos",
+    nombre:"Caballa", catalan:"Verat", cientifico:"Scomber scombrus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Scomber_scombrus.png/640px-Scomber_scombrus.png",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Pelágica, bancos grandes en superficie.",
+    pesoRango:"200 – 800 g.",
+    tallaMinima:"20 cm (UE).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Primavera y verano.",
+    carne:"Buena fresca, azul, sabor marcado.",
+    dificultad:"Media. Bancos rápidos cerca de superficie.",
+    tecnica:"A media agua sobre el banco.",
+    verificado:true
+  },
+  {
+    id:"espeton", grupo:"pelagicos",
+    nombre:"Espetón / Barracuda mediterránea", catalan:"Espet", cientifico:"Sphyraena viridensis",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sphyraena_viridensis.jpg/640px-Sphyraena_viridensis.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Pelágico costero, bancos numerosos cerca de superficie y a media agua.",
+    pesoRango:"1 – 5 kg.",
+    tallaMinima:"No fijada de forma específica (consultar).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano y otoño; muy frecuente en septiembre.",
+    carne:"Aceptable; el espetón mediterráneo, a diferencia de la barracuda atlántica, no presenta ciguatera en el Med.",
+    dificultad:"Media. Curioso, suele rondar al pescador.",
+    tecnica:"Espera con flasher; pasada lateral muy típica.",
+    verificado:false,
+    nota:"Verificar talla mínima vigente en Catalunya."
+  },
+  {
+    id:"palometon", grupo:"pelagicos",
+    nombre:"Palometón", catalan:"Palomida", cientifico:"Lichia amia",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Lichia_amia.jpg/640px-Lichia_amia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Pelágico costero, fondos mixtos cerca de superficie.",
+    pesoRango:"2 – 15 kg.",
+    tallaMinima:"30 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Primavera y verano.",
+    carne:"Buena, blanca, recomendable sangrar rápido.",
+    dificultad:"Alta. Solitario o en pequeños grupos, esquivo.",
+    tecnica:"Espera en zonas mixtas con corriente; pasada única habitual.",
+    verificado:true
+  },
+
+  // BENTÓNICOS / ROCA
+  {
+    id:"corvina", grupo:"roca",
+    nombre:"Corvina", catalan:"Corball", cientifico:"Sciaena umbra",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Sciaena_umbra_Tossa.jpg/640px-Sciaena_umbra_Tossa.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Cuevas y oquedades rocosas, 5–40 m. Forman grupos.",
+    pesoRango:"1 – 4 kg.",
+    tallaMinima:"30 cm (referencia; especie con protección creciente).",
+    cuota:"Cupo restringido — consultar ARP/3311/2025.",
+    epoca:"Verano principalmente.",
+    carne:"Excelente.",
+    dificultad:"Media-alta. Acceso a cuevas, fácil de espantar.",
+    tecnica:"Espera silenciosa en boca de cueva.",
+    verificado:true,
+    nota:"Especie en declive en el Mediterráneo. Pesca responsable recomendada — considerar liberar."
+  },
+  {
+    id:"maragota", grupo:"roca",
+    nombre:"Tordo / Maragota", catalan:"Tord massot", cientifico:"Labrus merula",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Labrus_merula.jpg/640px-Labrus_merula.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca con algas, 5–30 m.",
+    pesoRango:"500 g – 2 kg.",
+    tallaMinima:"20 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año.",
+    carne:"Buena, blanca, algo blanda.",
+    dificultad:"Baja-media. Curioso.",
+    tecnica:"Agachons cortos por roca con alga.",
+    verificado:true
+  },
+  {
+    id:"congrio", grupo:"roca",
+    nombre:"Congrio", catalan:"Congre", cientifico:"Conger conger",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Conger_conger_Sardinia.jpg/640px-Conger_conger_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Cuevas y grietas rocosas, 5–80 m.",
+    pesoRango:"2 – 20 kg.",
+    tallaMinima:"60 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año; más activo al anochecer.",
+    carne:"Buena (especialmente parte de cabeza para guisos).",
+    dificultad:"Media. Dificultad está en sacarlo del agujero sin perderlo.",
+    tecnica:"Tiro en agujero; manejo cuidadoso por mordedura.",
+    verificado:true
+  },
+  {
+    id:"morena", grupo:"roca",
+    nombre:"Morena", catalan:"Morena", cientifico:"Muraena helena",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Muraena_helena_Crete.jpg/640px-Muraena_helena_Crete.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca con grietas, 5–50 m. Solitaria.",
+    pesoRango:"1 – 5 kg.",
+    tallaMinima:"No fijada específicamente (consultar).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año.",
+    carne:"Aceptable pero llena de espinas; mordedura muy peligrosa, manejar con extrema precaución.",
+    dificultad:"Media. Dificultad en manejo seguro.",
+    tecnica:"Tiro en agujero; nunca meter mano sin sedalar.",
+    verificado:false,
+    nota:"Mordedura potencialmente infecciosa: tratar siempre con guantes y pinzas."
+  },
+
+  // CEFALÓPODOS
+  {
+    id:"sepia", grupo:"cefalopodos",
+    nombre:"Sepia", catalan:"Sípia", cientifico:"Sepia officinalis",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sepia_officinalis_Sardinia.jpg/640px-Sepia_officinalis_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Fondos arenosos y pradera, 2–30 m.",
+    pesoRango:"200 g – 2 kg.",
+    tallaMinima:"12 cm (manto) según ARP/3311/2025.",
+    cuota:"Máximo 15 ejemplares/día (≥12 cm).",
+    epoca:"Pico primavera (marzo–mayo) durante puesta cerca de costa.",
+    carne:"Excelente, muy versátil.",
+    dificultad:"Baja-media. Camuflaje excelente.",
+    tecnica:"Agachons cortos sobre arena/posidonia; vista entrenada para detectar el camuflaje.",
+    verificado:true
+  },
+  {
+    id:"pulpo", grupo:"cefalopodos",
+    nombre:"Pulpo", catalan:"Pop", cientifico:"Octopus vulgaris",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Octopus_vulgaris_Naples.jpg/640px-Octopus_vulgaris_Naples.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca con cuevas y oquedades, 1–80 m.",
+    pesoRango:"500 g – 5 kg.",
+    tallaMinima:"1 kg (peso, recomendación común; consultar normativa vigente).",
+    cuota:"Sujeto a cupo general de cefalópodos (5 kg/día).",
+    epoca:"Otoño e invierno, mejores tallas.",
+    carne:"Excelente, base de la cocina catalana.",
+    dificultad:"Baja. Identificar guarida (restos de conchas).",
+    tecnica:"Búsqueda en roca; respeta hembras con huevos.",
+    verificado:false,
+    nota:"Talla/peso mínimo exacto en Catalunya: verificar resolución vigente."
+  },
+  {
+    id:"calamar", grupo:"cefalopodos",
+    nombre:"Calamar", catalan:"Calamar", cientifico:"Loligo vulgaris",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Loligo_vulgaris_Sardinia.jpg/640px-Loligo_vulgaris_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Pelágico costero, agua media. Difícil al arpón (más típico de jigging).",
+    pesoRango:"200 g – 1,5 kg.",
+    tallaMinima:"18 cm (manto) según ARP/3311/2025.",
+    cuota:"Hasta 10 ejemplares/día (≥18 cm).",
+    epoca:"Otoño e invierno.",
+    carne:"Excelente.",
+    dificultad:"Alta para la apnea. Más rara su captura submarina.",
+    tecnica:"Avistamiento ocasional en agua media; tiro técnico.",
+    verificado:true
+  }
+];
+
+/* ============================================================
+   DATOS — ZONAS Y SPOTS (descripciones por tramo, sin coordenadas)
+============================================================ */
+const ZONAS = [
+  {
+    id:"brava-norte",
+    nombre:"Costa Brava Norte (Cap de Creus – L'Estartit)",
+    tramo:"De Portbou hasta Begur / L'Estartit.",
+    descripcion:"Tramo más salvaje y rocoso del litoral catalán, con calas profundas, paredes verticales y mejor visibilidad (15–25 m en verano). Es la zona con más biomasa y mayor probabilidad de encuentros con dentón y mero, pero también la más regulada: incluye <strong>4 de las 5 reservas marinas</strong> de Catalunya.",
+    caracteristicas:"Fondos rocosos profundos, paredes con gorgonias, mejor visibilidad de Catalunya, corrientes notables en cabos.",
+    especies:["denton","mero","sargo-picudo","corvina","serviola"],
+    acceso:"Desde tierra en calas (Cap Norfeu, Cala Aiguablava, etc.) o desde barco (puertos de Llançà, Roses, L'Escala, L'Estartit, Palamós).",
+    dificultad:"Avanzada. Corrientes y profundidad. Verificar siempre límites de reservas.",
+    aviso:"Atención: dentro de este tramo están las reservas de Cap de Creus, Illes Medes y Ses Negres (pesca submarina prohibida). Consulta la sección Reservas."
+  },
+  {
+    id:"brava-sur-maresme",
+    nombre:"Costa Brava Sur y Maresme (Palamós – Mataró)",
+    tramo:"De Palamós hasta Mataró / Barcelona.",
+    descripcion:"Tramo de transición entre la roca de la Brava y las playas más abiertas del Maresme. Aparece más arena, pradera de posidonia y zonas mixtas, con menor profundidad cercana a costa. Buena pesca de dorada, sepia y sargo. Visibilidad variable (5–15 m).",
+    caracteristicas:"Mixto roca-arena, pradera, escolleras puntuales (Calella, Arenys, Premià). Cerca de núcleos urbanos.",
+    especies:["dorada","sepia","sargo","lubina","variada"],
+    acceso:"Múltiples accesos por playa y zonas rocosas (Lloret, Tossa, Sant Pol, Caldes...). Puertos: Blanes, Arenys de Mar, Premià.",
+    dificultad:"Media. Profundidades moderadas, condiciones más manejables.",
+    aviso:"Tráfico de embarcaciones recreativas alto en verano: extremar visibilidad de la boya."
+  },
+  {
+    id:"barcelona-garraf",
+    nombre:"Barcelona y Costa del Garraf",
+    tramo:"De Barcelona ciudad hasta Cubelles (Vilanova i la Geltrú).",
+    descripcion:"Zona urbana e industrial con escolleras, espigones y algunas paredes interesantes en Garraf. Aguas más sucias por proximidad portuaria pero con presencia de lubina y sepia. El Garraf ofrece paredes y calas (Sitges, Garraf) con mejor pesca.",
+    caracteristicas:"Escolleras, espigones portuarios, paredes calizas en Garraf, fondos mixtos. Visibilidad baja (3–10 m).",
+    especies:["lubina","dorada","sargo","sepia","variada","oblada"],
+    acceso:"Escollera de Barcelona (zonas autorizadas), calas de Garraf, Sitges, costa de Vilanova.",
+    dificultad:"Baja-media. Buen tramo de iniciación, pero precaución con tráfico portuario.",
+    aviso:"Puerto de Barcelona y zonas balizadas de baño: pesca prohibida. Respetar 100 m de bañistas siempre."
+  },
+  {
+    id:"daurada-ebre",
+    nombre:"Costa Daurada y Delta del Ebro",
+    tramo:"De Cunit hasta el sur del Delta del Ebre.",
+    descripcion:"Costa más baja y arenosa, con presencia destacada de pradera de posidonia en zonas, y aguas más turbias y nutritivas hacia el Delta. Riqueza biológica alta. Más lubina, dorada y sepia; bocas del Ebre con condiciones únicas (agua mezclada).",
+    caracteristicas:"Arena dominante, pradera de posidonia, escollera del puerto de Tarragona, influencia de aguas dulces del Ebre. Visibilidad típicamente reducida.",
+    especies:["lubina","dorada","sepia","herrera","sargo"],
+    acceso:"Calafell, Torredembarra, Cap Salou, Cambrils, L'Ametlla, L'Ampolla, Sant Carles de la Ràpita.",
+    dificultad:"Media. Visibilidad reducida exige técnica adaptada y prudencia.",
+    aviso:"Atención: Reserva de Masia Blanca (El Vendrell) y Parc Subaquàtic SES (escollera de Tarragona) tienen pesca prohibida."
+  }
+];
+
+/* ============================================================
+   DATOS — RESERVAS MARINAS (PESCA PROHIBIDA)
+============================================================ */
+const RESERVAS = [
+  {
+    nombre:"Reserva Marina de las Illes Medes",
+    ubicacion:"L'Estartit (Baix Empordà, Girona)",
+    creada:"1983",
+    superficie:"~511 ha marinas",
+    gestion:"Generalitat de Catalunya",
+    descripcion:"Una de las reservas más antiguas y emblemáticas del Mediterráneo, con grandes meros y biodiversidad excepcional. La pesca submarina está totalmente prohibida en todo el polígono.",
+    nota:"Incluida en el Parc Natural del Montgrí, les Illes Medes i el Baix Ter."
+  },
+  {
+    nombre:"Parc Natural Cap de Creus (área marina)",
+    ubicacion:"Roses, Cadaqués, Port de la Selva (Alt Empordà, Girona)",
+    creada:"1998",
+    superficie:"~3.073 ha marinas",
+    gestion:"Generalitat de Catalunya",
+    descripcion:"Parque natural con zonificación compleja: existen <strong>reservas naturales integrales</strong> (Cap de Norfeu, illa de s'Encalladora) donde toda pesca está prohibida, y zonas de uso restringido. Antes de entrar verifica la subzona exacta.",
+    nota:"⚠️ El polígono tiene varias subzonas con normas distintas. Consulta el mapa oficial del parque."
+  },
+  {
+    nombre:"Reserva Marina de Ses Negres",
+    ubicacion:"Begur (Baix Empordà, Girona)",
+    creada:"1993",
+    superficie:"~80 ha",
+    gestion:"Generalitat de Catalunya",
+    descripcion:"Pequeña reserva costera frente al cabo de Begur. Pesca submarina y de cualquier tipo prohibida en toda el área."
+  },
+  {
+    nombre:"Reserva Marina de Masia Blanca",
+    ubicacion:"El Vendrell / Coma-ruga (Baix Penedès, Tarragona)",
+    creada:"1999",
+    superficie:"~457 ha",
+    gestion:"Estatal (Ministerio de Agricultura, Pesca y Alimentación)",
+    descripcion:"Reserva sobre fondos arenosos y pradera de posidonia. Pesca submarina prohibida; pesca recreativa con caña restringida según zonas."
+  },
+  {
+    nombre:"Parc Subaquàtic SES (escollera de Tarragona)",
+    ubicacion:"Puerto de Tarragona",
+    creada:"—",
+    superficie:"Tramo de escollera",
+    gestion:"Autoridad portuaria / Generalitat",
+    descripcion:"Zona de la escollera del puerto de Tarragona reservada como parque subacuático. Pesca submarina prohibida.",
+    nota:"⚠️ Información sujeta a actualización; consulta el portal oficial del puerto antes de pescar en la zona."
+  }
+];
+
+/* ============================================================
+   RENDER
+============================================================ */
+const grid = document.getElementById('grid-especies');
+const iconoGrupo = g => g==='cefalopodos'?'🦑':(g==='pelagicos'?'🐠':'🐟');
+
+/* Cache de imágenes resueltas por id de especie */
+const imgCache = {};
+const imgInFlight = {};
+
+/* Resuelve la URL de imagen para una especie consultando la API REST de Wikipedia
+   (es y en) usando el nombre científico como slug del artículo. Devuelve la URL
+   de la miniatura o null si no se encuentra. */
+async function fetchWikiImage(esp){
+  if(imgCache[esp.id]) return imgCache[esp.id];
+  if(imgInFlight[esp.id]) return imgInFlight[esp.id];
+
+  const slug = esp.cientifico.replace(/ /g,'_');
+  const candidatos = [
+    `https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`,
+    `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(slug)}`
+  ];
+
+  imgInFlight[esp.id] = (async ()=>{
+    for(const url of candidatos){
+      try{
+        const r = await fetch(url, {headers:{'Accept':'application/json'}});
+        if(!r.ok) continue;
+        const data = await r.json();
+        const src = data?.originalimage?.source || data?.thumbnail?.source;
+        if(src){
+          imgCache[esp.id] = src;
+          return src;
+        }
+      }catch(_){/* ignorar y probar siguiente */}
+    }
+    imgCache[esp.id] = null;
+    return null;
+  })();
+  return imgInFlight[esp.id];
+}
+
+/* Carga la imagen y la inserta en el contenedor (card o modal) */
+async function cargarImagenEspecie(esp, contenedor, claseImg){
+  const icon = iconoGrupo(esp.grupo);
+  const src = await fetchWikiImage(esp);
+  if(!contenedor.isConnected) return;
+  if(src){
+    contenedor.innerHTML = `<img class="${claseImg}" src="${src}" alt="${esp.nombre}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;${claseImg} placeholder&quot;><span>${icon}</span></div>'">`;
+  }else{
+    contenedor.innerHTML = `<div class="${claseImg} placeholder"><span>${icon}</span></div>`;
+  }
+}
+
+function renderEspecies(lista){
+  grid.innerHTML = lista.map(e=>{
+    const warn = e.verificado===false ? `<span class="badge-warn" title="Algunos datos no verificados al 100%">⚠ revisar</span>` : '';
+    const icon = iconoGrupo(e.grupo);
+    return `
+    <article class="card" tabindex="0" data-id="${e.id}" data-grupo="${e.grupo}" aria-label="${e.nombre}">
+      ${warn}
+      <div class="card-img-wrap" data-img="${e.id}">
+        <div class="card-img placeholder"><span>${icon}</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-nombre">${e.nombre}</div>
+        <div class="card-cientifico">${e.cientifico}</div>
+        <div class="card-catalan">CA: ${e.catalan}</div>
+      </div>
+    </article>`;
+  }).join('');
+  /* Disparar carga de imágenes en paralelo */
+  lista.forEach(e=>{
+    const wrap = grid.querySelector(`.card-img-wrap[data-img="${e.id}"]`);
+    if(wrap) cargarImagenEspecie(e, wrap, 'card-img');
+  });
+}
+
+function renderZonas(){
+  document.getElementById('grid-spots').innerHTML = ZONAS.map(z=>{
+    const tags = z.especies.map(eid=>{
+      const esp = ESPECIES.find(x=>x.id===eid);
+      return esp ? `<span class="tag" data-id="${eid}">${esp.nombre}</span>` : '';
+    }).join('');
+    return `
+    <article class="tramo">
+      <h3>${z.nombre}</h3>
+      <div class="tramo-meta">${z.tramo}</div>
+      <p>${z.descripcion}</p>
+      <p><strong>Características:</strong> ${z.caracteristicas}</p>
+      <p><strong>Acceso:</strong> ${z.acceso}</p>
+      <p><strong>Dificultad:</strong> ${z.dificultad}</p>
+      ${z.aviso ? `<div class="aviso" style="margin-top:.6rem;font-size:.85rem"><strong>⚠️</strong> ${z.aviso}</div>` : ''}
+      <div class="especies-tags">
+        <strong style="font-size:.8rem;color:var(--gris);margin-right:.3rem">Especies habituales:</strong>
+        ${tags}
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function renderReservas(){
+  document.getElementById('grid-reservas').innerHTML = RESERVAS.map(r=>`
+    <article class="reserva">
+      <h4>🚫 ${r.nombre}</h4>
+      <div class="reserva-meta"><strong>${r.ubicacion}</strong> · creada ${r.creada} · ${r.superficie} · gestión: ${r.gestion}</div>
+      <p>${r.descripcion}</p>
+      ${r.nota ? `<p style="margin-top:.4rem;font-style:italic;color:var(--gris)">${r.nota}</p>` : ''}
+    </article>
+  `).join('');
+}
+
+/* ============================================================
+   FILTRADO Y BÚSQUEDA
+============================================================ */
+let filtroActual = 'todas';
+function aplicarFiltro(){
+  const q = document.getElementById('buscador').value.trim().toLowerCase();
+  let lista = ESPECIES;
+  if(filtroActual !== 'todas') lista = lista.filter(e=>e.grupo===filtroActual);
+  if(q) lista = lista.filter(e =>
+    e.nombre.toLowerCase().includes(q) ||
+    e.catalan.toLowerCase().includes(q) ||
+    e.cientifico.toLowerCase().includes(q)
+  );
+  renderEspecies(lista);
+}
+document.getElementById('buscador').addEventListener('input', aplicarFiltro);
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('activo'));
+    chip.classList.add('activo');
+    filtroActual = chip.dataset.filtro;
+    aplicarFiltro();
+  });
+});
+
+/* ============================================================
+   MODAL
+============================================================ */
+const modal = document.getElementById('modal');
+const modalImgWrap = document.getElementById('modal-img-wrap');
+const modalTit = document.getElementById('modal-titulo');
+const modalCient = document.getElementById('modal-cientifico');
+const modalCat = document.getElementById('modal-catalan');
+const modalWarn = document.getElementById('modal-warn-wrap');
+const modalFicha = document.getElementById('modal-ficha');
+const modalCredit = document.getElementById('modal-credit');
+
+function abrirEspecie(id){
+  const e = ESPECIES.find(x=>x.id===id);
+  if(!e) return;
+  const icon = iconoGrupo(e.grupo);
+  modalImgWrap.innerHTML = `<div class="modal-img placeholder"><span>${icon}</span></div>`;
+  cargarImagenEspecie(e, modalImgWrap, 'modal-img');
+  modalTit.textContent = e.nombre;
+  modalCient.textContent = e.cientifico;
+  modalCat.textContent = `Catalán: ${e.catalan}`;
+  modalCredit.textContent = 'Foto: Wikipedia / Wikimedia Commons';
+
+  let warnHtml = '';
+  if(e.verificado === false){
+    warnHtml += `<div class="modal-warn"><strong>⚠ Información parcialmente sin contrastar:</strong> Alguno de los datos de esta ficha no se ha podido confirmar al 100% con fuentes oficiales. Verifica antes de actuar sobre la base de esta información.</div>`;
+  }
+  if(e.nota){
+    warnHtml += `<div class="modal-warn" style="background:#e3f2fd;border-color:var(--azul-mar)"><strong>Nota:</strong> ${e.nota}</div>`;
+  }
+  modalWarn.innerHTML = warnHtml;
+
+  const filas = [
+    ['Hábitat', e.habitat],
+    ['Peso (rango)', e.pesoRango],
+    ['Talla mínima legal', e.tallaMinima],
+    ['Cuota diaria', e.cuota],
+    ['Época', e.epoca],
+    ['Carne / valor culinario', e.carne],
+    ['Dificultad', e.dificultad],
+    ['Técnica recomendada', e.tecnica],
+  ];
+  modalFicha.innerHTML = filas.map(([k,v])=>`
+    <div class="ficha-row"><dt>${k}</dt><dd>${v}</dd></div>
+  `).join('');
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-close').focus();
+}
+
+function cerrarModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal-close').addEventListener('click', cerrarModal);
+modal.addEventListener('click', e=>{ if(e.target===modal) cerrarModal(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) cerrarModal(); });
+
+/* Delegación: click en tarjeta o tag */
+document.addEventListener('click', e=>{
+  const card = e.target.closest('.card');
+  if(card){ abrirEspecie(card.dataset.id); return; }
+  const tag = e.target.closest('.tag');
+  if(tag){
+    abrirEspecie(tag.dataset.id);
+    return;
+  }
+});
+document.addEventListener('keydown', e=>{
+  if(e.key==='Enter' && document.activeElement?.classList.contains('card')){
+    abrirEspecie(document.activeElement.dataset.id);
+  }
+});
+
+/* INIT */
+renderEspecies(ESPECIES);
+renderZonas();
+renderReservas();
+</script>
+</body>
+</html>
