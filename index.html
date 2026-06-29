@@ -424,41 +424,8 @@ footer{
    Si una imagen falla en cargarse, se muestra placeholder.
 ============================================================ */
 const ESPECIES = [
-  // ESPÁRIDOS
-  {
-    id:"dorada", grupo:"esparidos",
-    nombre:"Dorada", catalan:"Orada", cientifico:"Sparus aurata",
-    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sparus_aurata_Sardegna.jpg/640px-Sparus_aurata_Sardegna.jpg",
-    fotoCredito:"Wikimedia Commons · CC BY-SA",
-    habitat:"Fondos arenosos, praderas de posidonia y zonas mixtas. De 0 a 30 m, también en lagunas y bocas de río.",
-    pesoRango:"0,5 – 4 kg habitualmente; ejemplares trofeo hasta 7 kg.",
-    tallaMinima:"20 cm (oficial Catalunya); 30 cm en cupos de captura por ejemplar.",
-    cuota:"Hasta 7 ejemplares/día (≥30 cm) según ARP/3311/2025.",
-    epoca:"Todo el año; pico septiembre–noviembre.",
-    carne:"Excelente — blanca, firme, muy apreciada. Una de las mejores capturas de la zona.",
-    dificultad:"Media-alta. Muy desconfiada, oído y vista finísimos.",
-    aspecto:"Cuerpo ovalado, plateado con tonos dorados; banda dorada característica entre los ojos y mancha oscura sobre el opérculo. Boca pequeña con dientes molariformes.",
-    alimentacion:"Omnívora. Crustáceos, moluscos (mejillones, almejas), pequeños peces y algas. Mandíbulas potentes para triturar conchas.",
-    tecnica:"Espera al fondo cerca de matas de posidonia o canales; aproximación silenciosa, sin movimientos bruscos.",
-    verificado:true
-  },
-  {
-    id:"lubina", grupo:"esparidos",
-    nombre:"Lubina (Llobarro)", catalan:"Llobarro", cientifico:"Dicentrarchus labrax",
-    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Dicentrarchus_labrax_Sardinia.jpg/640px-Dicentrarchus_labrax_Sardinia.jpg",
-    fotoCredito:"Wikimedia Commons · CC BY-SA",
-    habitat:"Zonas batidas, escolleras, bocas de puerto, desembocaduras. Aguanta agua dulce.",
-    pesoRango:"1 – 5 kg lo habitual; trofeos hasta 10 kg.",
-    tallaMinima:"36 cm (estatal); 40 cm para cupo recreativo según ARP/3311/2025.",
-    cuota:"Hasta 3 ejemplares/día (≥40 cm).",
-    epoca:"Otoño–invierno (octubre a febrero) los grandes ejemplares en aguas batidas.",
-    carne:"Excelente, fina, muy valorada en cocina.",
-    dificultad:"Alta. Pez muy esquivo, suele aparecer en agua sucia/batida.",
-    aspecto:"Cuerpo alargado y fusiforme, plateado con dorso gris azulado. Dos aletas dorsales separadas. Mancha oscura en el opérculo (en juveniles).",
-    alimentacion:"Carnívora y depredadora. Peces pequeños (sardina, boquerón), cefalópodos y crustáceos. Caza al acecho en zonas batidas.",
-    tecnica:"Espera en agujeros junto a rompientes y escolleras; visibilidad reducida es buena pista.",
-    verificado:true
-  },
+
+  // SARGOS (Diplodus spp.)
   {
     id:"sargo", grupo:"esparidos",
     nombre:"Sargo común", catalan:"Sard", cientifico:"Diplodus sargus",
@@ -511,6 +478,58 @@ const ESPECIES = [
     verificado:true
   },
   {
+    id:"sargo-real", grupo:"esparidos",
+    nombre:"Sargo real (Sargo soldado)", catalan:"Sard reial", cientifico:"Diplodus cervinus",
+    habitat:"Roca y coralígeno en aguas más profundas que otros sargos, 15–50 m. Solitario o en pequeños grupos.",
+    pesoRango:"1 – 3 kg habitualmente; trofeos hasta 6 kg.",
+    tallaMinima:"23 cm (referencia; consultar resolución vigente).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año; los grandes ejemplares más activos en otoño-invierno.",
+    carne:"Excelente, similar a la del sargo común pero firme y muy apreciada.",
+    dificultad:"Muy alta. Es la captura más codiciada del grupo de los sargos: extremadamente desconfiado y suele estar profundo.",
+    aspecto:"Cuerpo robusto plateado con 5 bandas verticales oscuras anchas y bien definidas (parecidas a las de una cebra). Hocico romo, labios gruesos. Aletas con tonos amarillentos.",
+    alimentacion:"Carnívora. Crustáceos, moluscos, erizos y pequeños cefalópodos. Mandíbulas potentes para triturar.",
+    tecnica:"Agachon profundo en veril o pared rocosa; espera larga al borde del azul.",
+    verificado:true,
+    nota:"Especie trofeo. Considerar liberar ejemplares grandes (reproductores) por su valor para el ecosistema."
+  },
+
+  // OTROS ESPÁRIDOS
+  {
+    id:"dorada", grupo:"esparidos",
+    nombre:"Dorada", catalan:"Orada", cientifico:"Sparus aurata",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sparus_aurata_Sardegna.jpg/640px-Sparus_aurata_Sardegna.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Fondos arenosos, praderas de posidonia y zonas mixtas. De 0 a 30 m, también en lagunas y bocas de río.",
+    pesoRango:"0,5 – 4 kg habitualmente; ejemplares trofeo hasta 7 kg.",
+    tallaMinima:"20 cm (oficial Catalunya); 30 cm en cupos de captura por ejemplar.",
+    cuota:"Hasta 7 ejemplares/día (≥30 cm) según ARP/3311/2025.",
+    epoca:"Todo el año; pico septiembre–noviembre.",
+    carne:"Excelente — blanca, firme, muy apreciada. Una de las mejores capturas de la zona.",
+    dificultad:"Media-alta. Muy desconfiada, oído y vista finísimos.",
+    aspecto:"Cuerpo ovalado, plateado con tonos dorados; banda dorada característica entre los ojos y mancha oscura sobre el opérculo. Boca pequeña con dientes molariformes.",
+    alimentacion:"Omnívora. Crustáceos, moluscos (mejillones, almejas), pequeños peces y algas. Mandíbulas potentes para triturar conchas.",
+    tecnica:"Espera al fondo cerca de matas de posidonia o canales; aproximación silenciosa, sin movimientos bruscos.",
+    verificado:true
+  },
+  {
+    id:"herrera", grupo:"esparidos",
+    nombre:"Herrera", catalan:"Mabre", cientifico:"Lithognathus mormyrus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lithognathus_mormyrus_Sardinia.jpg/640px-Lithognathus_mormyrus_Sardinia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Fondos arenosos costeros, 1–20 m.",
+    pesoRango:"200 – 800 g.",
+    tallaMinima:"20 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano principalmente.",
+    carne:"Buena, blanca y delicada.",
+    dificultad:"Media. En grupos pequeños sobre arena.",
+    aspecto:"Cuerpo alargado plateado con 14-15 bandas verticales oscuras estrechas y discontinuas. Hocico puntiagudo, boca pequeña.",
+    alimentacion:"Carnívora bentónica. Pequeños crustáceos, moluscos y gusanos que excava en la arena.",
+    tecnica:"A la deriva sobre arena, espera baja.",
+    verificado:true
+  },
+  {
     id:"oblada", grupo:"esparidos",
     nombre:"Oblada", catalan:"Oblada", cientifico:"Oblada melanura",
     foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Oblada_melanura_Sardinia.jpg/640px-Oblada_melanura_Sardinia.jpg",
@@ -544,6 +563,8 @@ const ESPECIES = [
     tecnica:"A la caída sobre el banco en pradera.",
     verificado:true
   },
+
+  // ESPÁRIDOS DEPREDADORES (trofeo)
   {
     id:"denton", grupo:"esparidos",
     nombre:"Dentón", catalan:"Déntol", cientifico:"Dentex dentex",
@@ -579,62 +600,42 @@ const ESPECIES = [
     verificado:false,
     nota:"Talla mínima exacta en Catalunya: verificar Resolución ARP/3311/2025."
   },
+
+  // PECES PLATEADOS COSTEROS
   {
-    id:"herrera", grupo:"esparidos",
-    nombre:"Herrera", catalan:"Mabre", cientifico:"Lithognathus mormyrus",
-    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lithognathus_mormyrus_Sardinia.jpg/640px-Lithognathus_mormyrus_Sardinia.jpg",
+    id:"lubina", grupo:"pelagicos",
+    nombre:"Lubina (Llobarro)", catalan:"Llobarro", cientifico:"Dicentrarchus labrax",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Dicentrarchus_labrax_Sardinia.jpg/640px-Dicentrarchus_labrax_Sardinia.jpg",
     fotoCredito:"Wikimedia Commons · CC BY-SA",
-    habitat:"Fondos arenosos costeros, 1–20 m.",
-    pesoRango:"200 – 800 g.",
-    tallaMinima:"20 cm (referencia).",
+    habitat:"Zonas batidas, escolleras, bocas de puerto, desembocaduras. Aguanta agua dulce.",
+    pesoRango:"1 – 5 kg lo habitual; trofeos hasta 10 kg.",
+    tallaMinima:"36 cm (estatal); 40 cm para cupo recreativo según ARP/3311/2025.",
+    cuota:"Hasta 3 ejemplares/día (≥40 cm).",
+    epoca:"Otoño–invierno (octubre a febrero) los grandes ejemplares en aguas batidas.",
+    carne:"Excelente, fina, muy valorada en cocina.",
+    dificultad:"Alta. Pez muy esquivo, suele aparecer en agua sucia/batida.",
+    aspecto:"Cuerpo alargado y fusiforme, plateado con dorso gris azulado. Dos aletas dorsales separadas. Mancha oscura en el opérculo (en juveniles).",
+    alimentacion:"Carnívora y depredadora. Peces pequeños (sardina, boquerón), cefalópodos y crustáceos. Caza al acecho en zonas batidas.",
+    tecnica:"Espera en agujeros junto a rompientes y escolleras; visibilidad reducida es buena pista.",
+    verificado:true
+  },
+  {
+    id:"lisa", grupo:"pelagicos",
+    nombre:"Lisa / Mújol", catalan:"Llissa", cientifico:"Mugil cephalus",
+    habitat:"Aguas someras costeras, puertos, escolleras, desembocaduras de ríos y lagunas salobres. 0–10 m.",
+    pesoRango:"500 g – 4 kg habitualmente; ejemplares grandes >6 kg.",
+    tallaMinima:"20 cm (referencia general; verificar resolución vigente).",
     cuota:"Sujeto a cupo general.",
-    epoca:"Verano principalmente.",
-    carne:"Buena, blanca y delicada.",
-    dificultad:"Media. En grupos pequeños sobre arena.",
-    aspecto:"Cuerpo alargado plateado con 14-15 bandas verticales oscuras estrechas y discontinuas. Hocico puntiagudo, boca pequeña.",
-    alimentacion:"Carnívora bentónica. Pequeños crustáceos, moluscos y gusanos que excava en la arena.",
-    tecnica:"A la deriva sobre arena, espera baja.",
+    epoca:"Todo el año; bancos grandes en otoño.",
+    carne:"Variable — buena en ejemplares de aguas limpias; en puertos puede tener sabor a fango. Hueva (botarga) muy apreciada.",
+    dificultad:"Alta. Sentidos muy agudos, espantadiza, se mantiene en grupo huidizo.",
+    aspecto:"Cuerpo fusiforme, torpedo plateado con dorso gris-verdoso. Cabeza ancha y aplanada con boca pequeña. Dos aletas dorsales bien separadas. Ojos parcialmente cubiertos por párpado adiposo.",
+    alimentacion:"Omnívora detritívora. Filtra microalgas, detritus orgánico, plancton y pequeños invertebrados de la superficie del fondo.",
+    tecnica:"Espera a media agua en aguas turbias o cerca de escolleras; aproximación imposible, hay que dejarse encontrar.",
     verificado:true
   },
 
-  // SERRÁNIDOS
-  {
-    id:"mero", grupo:"serranidos",
-    nombre:"Mero", catalan:"Anfós", cientifico:"Epinephelus marginatus",
-    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Epinephelus_marginatus_Tossa.jpg/640px-Epinephelus_marginatus_Tossa.jpg",
-    fotoCredito:"Wikimedia Commons · CC BY-SA",
-    habitat:"Roca con cuevas y oquedades, 10–50 m. Territorial.",
-    pesoRango:"3 – 20 kg; trofeos >30 kg.",
-    tallaMinima:"50 cm (oficial Catalunya).",
-    cuota:"Máximo 2 ejemplares/día (≥50 cm) según ARP/3311/2025.",
-    epoca:"Verano y otoño. Especie con vedas y periodos de protección — consultar antes de salir.",
-    carne:"Excelente, muy apreciada.",
-    dificultad:"Alta. Especie vulnerable (UICN en peligro). Muchos pescadores deportivos defienden no abatirlos.",
-    aspecto:"Cuerpo robusto y voluminoso, marrón oscuro o verdoso con manchas amarillentas irregulares. Cabeza grande, mandíbula inferior prominente, ojos pequeños.",
-    alimentacion:"Depredador emboscador. Pulpos, calamares, peces, crustáceos. Ataque rapidísimo desde su refugio en cueva.",
-    tecnica:"Espera o agachon sobre cueva con presencia confirmada.",
-    verificado:true,
-    nota:"⚠️ Especie clasificada 'En Peligro' por UICN. Considera no capturarla aunque sea legal en talla."
-  },
-  {
-    id:"escorpora", grupo:"serranidos",
-    nombre:"Cabracho / Escórpora", catalan:"Cap-roig", cientifico:"Scorpaena scrofa",
-    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Scorpaena_scrofa_Marseille.jpg/640px-Scorpaena_scrofa_Marseille.jpg",
-    fotoCredito:"Wikimedia Commons · CC BY-SA",
-    habitat:"Roca y coralígeno, 20–200 m. Camuflada en el fondo.",
-    pesoRango:"500 g – 3 kg.",
-    tallaMinima:"25 cm (referencia).",
-    cuota:"Sujeto a cupo general.",
-    epoca:"Todo el año.",
-    carne:"Excelente — base de suquets y cremas.",
-    dificultad:"Baja-media (si la ves). Muy estática; la dificultad está en localizarla.",
-    aspecto:"Cuerpo robusto rojo intenso con marmoleado oscuro, cabeza grande con numerosos apéndices cutáneos y espinas. Espinas dorsales y operculares con veneno leve. Camuflaje excelente.",
-    alimentacion:"Depredador al acecho. Peces pequeños, crustáceos, pulpos. Inmóvil hasta que la presa pasa cerca.",
-    tecnica:"Agachon de inspección sobre roca; cuidado con las espinas venenosas al manipularla.",
-    verificado:true
-  },
-
-  // PELÁGICOS COSTEROS
+  // PELÁGICOS DEPREDADORES
   {
     id:"serviola", grupo:"pelagicos",
     nombre:"Serviola / Lecha", catalan:"Cerviola / Verat imperial", cientifico:"Seriola dumerili",
@@ -650,6 +651,23 @@ const ESPECIES = [
     aspecto:"Cuerpo fusiforme alargado, dorso azul-grisáceo y vientre plateado. Línea amarilla longitudinal en juveniles; banda oscura desde el ojo a la primera aleta dorsal.",
     alimentacion:"Depredador pelágico. Bancos de peces pequeños (sardina, boquerón, jurel) y calamares. Cazadora en grupo a gran velocidad.",
     tecnica:"Espera con braceada o aspetto en secos. Atracción con flasher.",
+    verificado:true
+  },
+  {
+    id:"palometon", grupo:"pelagicos",
+    nombre:"Palometón", catalan:"Palomida", cientifico:"Lichia amia",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Lichia_amia.jpg/640px-Lichia_amia.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Pelágico costero, fondos mixtos cerca de superficie.",
+    pesoRango:"2 – 15 kg.",
+    tallaMinima:"30 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Primavera y verano.",
+    carne:"Buena, blanca, recomendable sangrar rápido.",
+    dificultad:"Alta. Solitario o en pequeños grupos, esquivo.",
+    aspecto:"Cuerpo alargado y comprimido lateralmente, plateado azulado. Línea lateral muy marcada en forma de S. Mandíbula inferior prominente.",
+    alimentacion:"Depredador pelágico. Peces pequeños (sardina, lisa, boga). Caza en aguas someras incluso en rompientes.",
+    tecnica:"Espera en zonas mixtas con corriente; pasada única habitual.",
     verificado:true
   },
   {
@@ -704,25 +722,26 @@ const ESPECIES = [
     verificado:false,
     nota:"Verificar talla mínima vigente en Catalunya."
   },
-  {
-    id:"palometon", grupo:"pelagicos",
-    nombre:"Palometón", catalan:"Palomida", cientifico:"Lichia amia",
-    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Lichia_amia.jpg/640px-Lichia_amia.jpg",
-    fotoCredito:"Wikimedia Commons · CC BY-SA",
-    habitat:"Pelágico costero, fondos mixtos cerca de superficie.",
-    pesoRango:"2 – 15 kg.",
-    tallaMinima:"30 cm (referencia).",
-    cuota:"Sujeto a cupo general.",
-    epoca:"Primavera y verano.",
-    carne:"Buena, blanca, recomendable sangrar rápido.",
-    dificultad:"Alta. Solitario o en pequeños grupos, esquivo.",
-    aspecto:"Cuerpo alargado y comprimido lateralmente, plateado azulado. Línea lateral muy marcada en forma de S. Mandíbula inferior prominente.",
-    alimentacion:"Depredador pelágico. Peces pequeños (sardina, lisa, boga). Caza en aguas someras incluso en rompientes.",
-    tecnica:"Espera en zonas mixtas con corriente; pasada única habitual.",
-    verificado:true
-  },
 
-  // BENTÓNICOS / ROCA
+  // DEPREDADORES DE ROCA Y CUEVA
+  {
+    id:"mero", grupo:"serranidos",
+    nombre:"Mero", catalan:"Anfós", cientifico:"Epinephelus marginatus",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Epinephelus_marginatus_Tossa.jpg/640px-Epinephelus_marginatus_Tossa.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca con cuevas y oquedades, 10–50 m. Territorial.",
+    pesoRango:"3 – 20 kg; trofeos >30 kg.",
+    tallaMinima:"50 cm (oficial Catalunya).",
+    cuota:"Máximo 2 ejemplares/día (≥50 cm) según ARP/3311/2025.",
+    epoca:"Verano y otoño. Especie con vedas y periodos de protección — consultar antes de salir.",
+    carne:"Excelente, muy apreciada.",
+    dificultad:"Alta. Especie vulnerable (UICN en peligro). Muchos pescadores deportivos defienden no abatirlos.",
+    aspecto:"Cuerpo robusto y voluminoso, marrón oscuro o verdoso con manchas amarillentas irregulares. Cabeza grande, mandíbula inferior prominente, ojos pequeños.",
+    alimentacion:"Depredador emboscador. Pulpos, calamares, peces, crustáceos. Ataque rapidísimo desde su refugio en cueva.",
+    tecnica:"Espera o agachon sobre cueva con presencia confirmada.",
+    verificado:true,
+    nota:"⚠️ Especie clasificada 'En Peligro' por UICN. Considera no capturarla aunque sea legal en talla."
+  },
   {
     id:"corvina", grupo:"roca",
     nombre:"Corvina", catalan:"Corball", cientifico:"Sciaena umbra",
@@ -742,6 +761,57 @@ const ESPECIES = [
     nota:"Especie en declive en el Mediterráneo. Pesca responsable recomendada — considerar liberar."
   },
   {
+    id:"escorpora", grupo:"serranidos",
+    nombre:"Cabracho / Escórpora", catalan:"Cap-roig", cientifico:"Scorpaena scrofa",
+    foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Scorpaena_scrofa_Marseille.jpg/640px-Scorpaena_scrofa_Marseille.jpg",
+    fotoCredito:"Wikimedia Commons · CC BY-SA",
+    habitat:"Roca y coralígeno, 20–200 m. Camuflada en el fondo.",
+    pesoRango:"500 g – 3 kg.",
+    tallaMinima:"25 cm (referencia).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año.",
+    carne:"Excelente — base de suquets y cremas.",
+    dificultad:"Baja-media (si la ves). Muy estática; la dificultad está en localizarla.",
+    aspecto:"Cuerpo robusto rojo intenso con marmoleado oscuro, cabeza grande con numerosos apéndices cutáneos y espinas. Espinas dorsales y operculares con veneno leve. Camuflaje excelente.",
+    alimentacion:"Depredador al acecho. Peces pequeños, crustáceos, pulpos. Inmóvil hasta que la presa pasa cerca.",
+    tecnica:"Agachon de inspección sobre roca; cuidado con las espinas venenosas al manipularla.",
+    verificado:true
+  },
+
+  // PECES DE COLOR EN LA ROCA
+  {
+    id:"salmonete", grupo:"roca",
+    nombre:"Salmonete de roca", catalan:"Moll roquer", cientifico:"Mullus surmuletus",
+    habitat:"Fondos rocosos y mixtos con arena, 5–90 m. Suele moverse junto al fondo cerca de zonas con piedra.",
+    pesoRango:"200 – 700 g; trofeos hasta 1 kg.",
+    tallaMinima:"15 cm (referencia oficial; consultar resolución vigente).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Todo el año; mejores capturas en verano y otoño.",
+    carne:"Excelente — muy apreciada, considerada uno de los mejores pescados del Mediterráneo.",
+    dificultad:"Media. Curioso pero rápido para refugiarse.",
+    aspecto:"Cuerpo alargado rojo intenso con tres bandas amarillas longitudinales bien marcadas. Dos largos barbillones bajo el mentón (los usa para detectar comida en la arena). Cabeza con perfil recto.",
+    alimentacion:"Carnívora bentónica. Pequeños crustáceos, gusanos, moluscos y larvas que detecta hundiendo los barbillones en la arena.",
+    tecnica:"Espera baja junto a zonas de transición arena-roca; el aleteo lento atrae su curiosidad.",
+    verificado:true,
+    nota:"No confundir con el salmonete de fango (Mullus barbatus), más común sobre fondos blandos y de menor valor."
+  },
+  {
+    id:"pez-loro", grupo:"roca",
+    nombre:"Pez loro", catalan:"Lloro / Vaca", cientifico:"Sparisoma cretense",
+    habitat:"Fondos rocosos con cobertura de algas, 5–50 m. Cada vez más presente en costa catalana por calentamiento del agua.",
+    pesoRango:"400 g – 1,5 kg habitualmente; trofeos hasta 2,5 kg.",
+    tallaMinima:"No fijada de forma específica (consultar resolución vigente).",
+    cuota:"Sujeto a cupo general.",
+    epoca:"Verano y otoño principalmente, con aguas templadas.",
+    carne:"Buena, blanca, sabor delicado.",
+    dificultad:"Media. Curioso pero rápido, suele rondar en banco junto a las rocas.",
+    aspecto:"Dicromatismo sexual marcado: las hembras (más abundantes y de mayor tamaño en esta especie) son de color rojo intenso con mancha gris en el lomo y cola amarilla; los machos son gris-marrón uniforme. Boca con dientes fusionados formando un 'pico' característico de los escáridos.",
+    alimentacion:"Principalmente herbívora — algas que raspa de las rocas con su pico. Ocasionalmente pequeños invertebrados.",
+    tecnica:"A la caída o agachon corto sobre roca con alga; aproximación lenta a peces que pastorean.",
+    verificado:false,
+    nota:"Especie tropical/subtropical en expansión hacia el norte por el calentamiento del Mediterráneo. Distribución y abundancia exactas en Catalunya en evolución — los datos pueden cambiar rápido."
+  },
+  {
     id:"maragota", grupo:"roca",
     nombre:"Tordo / Maragota", catalan:"Tord massot", cientifico:"Labrus merula",
     foto:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Labrus_merula.jpg/640px-Labrus_merula.jpg",
@@ -758,6 +828,8 @@ const ESPECIES = [
     tecnica:"Agachons cortos por roca con alga.",
     verificado:true
   },
+
+  // SERPENTIFORMES
   {
     id:"congrio", grupo:"roca",
     nombre:"Congrio", catalan:"Congre", cientifico:"Conger conger",
@@ -846,72 +918,8 @@ const ESPECIES = [
     alimentacion:"Carnívoro pelágico. Peces pequeños y crustáceos. Caza en grupo de noche cerca de superficie.",
     tecnica:"Avistamiento ocasional en agua media; tiro técnico.",
     verificado:true
-  },
-
-  // NUEVAS ESPECIES
-  {
-    id:"salmonete", grupo:"roca",
-    nombre:"Salmonete de roca", catalan:"Moll roquer", cientifico:"Mullus surmuletus",
-    habitat:"Fondos rocosos y mixtos con arena, 5–90 m. Suele moverse junto al fondo cerca de zonas con piedra.",
-    pesoRango:"200 – 700 g; trofeos hasta 1 kg.",
-    tallaMinima:"15 cm (referencia oficial; consultar resolución vigente).",
-    cuota:"Sujeto a cupo general.",
-    epoca:"Todo el año; mejores capturas en verano y otoño.",
-    carne:"Excelente — muy apreciada, considerada uno de los mejores pescados del Mediterráneo.",
-    dificultad:"Media. Curioso pero rápido para refugiarse.",
-    aspecto:"Cuerpo alargado rojo intenso con tres bandas amarillas longitudinales bien marcadas. Dos largos barbillones bajo el mentón (los usa para detectar comida en la arena). Cabeza con perfil recto.",
-    alimentacion:"Carnívora bentónica. Pequeños crustáceos, gusanos, moluscos y larvas que detecta hundiendo los barbillones en la arena.",
-    tecnica:"Espera baja junto a zonas de transición arena-roca; el aleteo lento atrae su curiosidad.",
-    verificado:true,
-    nota:"No confundir con el salmonete de fango (Mullus barbatus), más común sobre fondos blandos y de menor valor."
-  },
-  {
-    id:"lisa", grupo:"pelagicos",
-    nombre:"Lisa / Mújol", catalan:"Llissa", cientifico:"Mugil cephalus",
-    habitat:"Aguas someras costeras, puertos, escolleras, desembocaduras de ríos y lagunas salobres. 0–10 m.",
-    pesoRango:"500 g – 4 kg habitualmente; ejemplares grandes >6 kg.",
-    tallaMinima:"20 cm (referencia general; verificar resolución vigente).",
-    cuota:"Sujeto a cupo general.",
-    epoca:"Todo el año; bancos grandes en otoño.",
-    carne:"Variable — buena en ejemplares de aguas limpias; en puertos puede tener sabor a fango. Hueva (botarga) muy apreciada.",
-    dificultad:"Alta. Sentidos muy agudos, espantadiza, se mantiene en grupo huidizo.",
-    aspecto:"Cuerpo fusiforme, torpedo plateado con dorso gris-verdoso. Cabeza ancha y aplanada con boca pequeña. Dos aletas dorsales bien separadas. Ojos parcialmente cubiertos por párpado adiposo.",
-    alimentacion:"Omnívora detritívora. Filtra microalgas, detritus orgánico, plancton y pequeños invertebrados de la superficie del fondo.",
-    tecnica:"Espera a media agua en aguas turbias o cerca de escolleras; aproximación imposible, hay que dejarse encontrar.",
-    verificado:true
-  },
-  {
-    id:"sargo-real", grupo:"esparidos",
-    nombre:"Sargo real (Sargo soldado)", catalan:"Sard reial", cientifico:"Diplodus cervinus",
-    habitat:"Roca y coralígeno en aguas más profundas que otros sargos, 15–50 m. Solitario o en pequeños grupos.",
-    pesoRango:"1 – 3 kg habitualmente; trofeos hasta 6 kg.",
-    tallaMinima:"23 cm (referencia; consultar resolución vigente).",
-    cuota:"Sujeto a cupo general.",
-    epoca:"Todo el año; los grandes ejemplares más activos en otoño-invierno.",
-    carne:"Excelente, similar a la del sargo común pero firme y muy apreciada.",
-    dificultad:"Muy alta. Es la captura más codiciada del grupo de los sargos: extremadamente desconfiado y suele estar profundo.",
-    aspecto:"Cuerpo robusto plateado con 5 bandas verticales oscuras anchas y bien definidas (parecidas a las de una cebra). Hocico romo, labios gruesos. Aletas con tonos amarillentos.",
-    alimentacion:"Carnívora. Crustáceos, moluscos, erizos y pequeños cefalópodos. Mandíbulas potentes para triturar.",
-    tecnica:"Agachon profundo en veril o pared rocosa; espera larga al borde del azul.",
-    verificado:true,
-    nota:"Especie trofeo. Considerar liberar ejemplares grandes (reproductores) por su valor para el ecosistema."
-  },
-  {
-    id:"pez-loro", grupo:"roca",
-    nombre:"Pez loro", catalan:"Lloro / Vaca", cientifico:"Sparisoma cretense",
-    habitat:"Fondos rocosos con cobertura de algas, 5–50 m. Cada vez más presente en costa catalana por calentamiento del agua.",
-    pesoRango:"400 g – 1,5 kg habitualmente; trofeos hasta 2,5 kg.",
-    tallaMinima:"No fijada de forma específica (consultar resolución vigente).",
-    cuota:"Sujeto a cupo general.",
-    epoca:"Verano y otoño principalmente, con aguas templadas.",
-    carne:"Buena, blanca, sabor delicado.",
-    dificultad:"Media. Curioso pero rápido, suele rondar en banco junto a las rocas.",
-    aspecto:"Dicromatismo sexual marcado: las hembras (más abundantes y de mayor tamaño en esta especie) son de color rojo intenso con mancha gris en el lomo y cola amarilla; los machos son gris-marrón uniforme. Boca con dientes fusionados formando un 'pico' característico de los escáridos.",
-    alimentacion:"Principalmente herbívora — algas que raspa de las rocas con su pico. Ocasionalmente pequeños invertebrados.",
-    tecnica:"A la caída o agachon corto sobre roca con alga; aproximación lenta a peces que pastorean.",
-    verificado:false,
-    nota:"Especie tropical/subtropical en expansión hacia el norte por el calentamiento del Mediterráneo. Distribución y abundancia exactas en Catalunya en evolución — los datos pueden cambiar rápido."
   }
+
 ];
 
 /* ============================================================
