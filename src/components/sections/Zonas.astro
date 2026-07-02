@@ -1,0 +1,38 @@
+---
+import Icon from '../Icon.astro';
+import Aviso from '../Aviso.astro';
+import { ZONAS } from '../../data/zonas.js';
+import { ESPECIES } from '../../data/especies.js';
+
+const nombreEspecie = (id) => ESPECIES.find((e) => e.id === id)?.nombre;
+---
+<section id="spots">
+  <h2>
+    <Icon name="map" size={20} />
+    Zonas de pesca por tramos de costa
+  </h2>
+  <p>La costa catalana tiene ~580 km de litoral con perfiles muy distintos. Esta guía describe <strong>zonas generales</strong> y sus características; no publica spots concretos por respeto a la comunidad y al recurso. La regla de oro: explora, respeta las tallas, no te lleves más de lo que vas a consumir.</p>
+  <div id="grid-spots">
+    {ZONAS.map((z) => (
+      <article class="tramo">
+        <h3>{z.nombre}</h3>
+        <div class="tramo-meta">{z.tramo}</div>
+        <p set:html={z.descripcion} />
+        <p><strong>Características:</strong> {z.caracteristicas}</p>
+        <p><strong>Acceso:</strong> {z.acceso}</p>
+        <p><strong>Dificultad:</strong> {z.dificultad}</p>
+        {z.aviso && (
+          <Aviso tipo="rojo" icon="warn" style="margin-top:14px;font-size:14px">
+            <Fragment set:html={z.aviso} />
+          </Aviso>
+        )}
+        <div class="especies-tags">
+          <span class="especies-label">Especies habituales</span>
+          {z.especies.map(
+            (eid) => nombreEspecie(eid) && <span class="tag" data-id={eid}>{nombreEspecie(eid)}</span>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

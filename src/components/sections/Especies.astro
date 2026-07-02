@@ -1,0 +1,42 @@
+---
+import Icon from '../Icon.astro';
+import EspecieCard from '../EspecieCard.astro';
+import EspecieModal from '../EspecieModal.astro';
+import { ESPECIES } from '../../data/especies.js';
+
+const filtros = [
+  { id: 'todas', label: 'Todas' },
+  { id: 'esparidos', label: 'Espáridos' },
+  { id: 'serranidos', label: 'Serránidos' },
+  { id: 'pelagicos', label: 'Pelágicos' },
+  { id: 'roca', label: 'Bentónicos' },
+  { id: 'cefalopodos', label: 'Marisco' },
+];
+---
+<section id="especies">
+  <h2>
+    <Icon name="fish" size={20} />
+    Especies
+  </h2>
+  <p>Las especies más representativas de la costa catalana para la pesca submarina. Haz clic en cualquier tarjeta para ver la ficha detallada.</p>
+
+  <div class="controles">
+    <div class="search-wrap">
+      <Icon name="search" size={16} />
+      <input type="search" id="buscador" placeholder="Buscar por nombre común, catalán o científico..." aria-label="Buscar especie" />
+    </div>
+    {filtros.map((f) => (
+      <button class:list={['chip', { activo: f.id === 'todas' }]} data-filtro={f.id}>{f.label}</button>
+    ))}
+  </div>
+
+  <div id="grid-especies" class="grid">
+    {ESPECIES.map((especie) => <EspecieCard especie={especie} />)}
+  </div>
+</section>
+
+<EspecieModal />
+
+<script>
+  import '../../scripts/especies.js';
+</script>

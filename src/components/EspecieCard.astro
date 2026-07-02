@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+
+const { especie } = Astro.props;
+const busqueda = `${especie.nombre} ${especie.catalan} ${especie.cientifico}`.toLowerCase();
+---
+<article
+  class="card"
+  tabindex="0"
+  data-id={especie.id}
+  data-grupo={especie.grupo}
+  data-busqueda={busqueda}
+  aria-label={especie.nombre}
+>
+  {especie.verificado === false && (
+    <span class="badge-warn badge-warn--abs" title="Algunos datos no verificados al 100%">revisar</span>
+  )}
+  <div class="card-img-wrap" data-img={especie.id}>
+    <div class="card-img placeholder">
+      <Icon name={especie.grupo === 'cefalopodos' ? 'shell' : 'fish'} size={32} stroke={1.5} />
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-nombre">{especie.nombre}</div>
+    <div class="card-cientifico">{especie.cientifico}</div>
+    <div class="card-catalan">CA: {especie.catalan}</div>
+  </div>
+</article>

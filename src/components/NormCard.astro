@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+
+const { icon, titulo } = Astro.props;
+---
+<div class="norm-card">
+  <div class="norm-card-header">
+    <Icon name={icon} size={18} />
+    <h4>{titulo}</h4>
+  </div>
+  <ul>
+    <slot />
+  </ul>
+</div>

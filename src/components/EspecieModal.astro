@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import { ESPECIES } from '../data/especies.js';
+
+// El contenido del modal se rellena desde el cliente (src/scripts/especies.js)
+// a partir del JSON embebido más abajo.
+---
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+  <div class="modal" id="modal-contenido">
+    <div class="modal-img-container">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">
+        <Icon name="close" size={16} stroke={2.5} />
+      </button>
+      <div id="modal-img-wrap"></div>
+    </div>
+    <div class="modal-body">
+      <h3 id="modal-titulo"></h3>
+      <div class="cientifico" id="modal-cientifico"></div>
+      <div class="catalan" id="modal-catalan"></div>
+      <div id="modal-warn-wrap"></div>
+      <dl class="ficha" id="modal-ficha"></dl>
+    </div>
+    <div class="modal-foto-credit" id="modal-credit"></div>
+  </div>
+</div>
+
+<script type="application/json" id="especies-data" set:html={JSON.stringify(ESPECIES)} />

@@ -1,0 +1,53 @@
+---
+import Icon from '../Icon.astro';
+import NormCard from '../NormCard.astro';
+---
+<section id="normativa">
+  <h2>
+    <Icon name="book" size={20} />
+    Normativa esencial
+  </h2>
+  <p>Resumen de las obligaciones para practicar pesca submarina recreativa en aguas catalanas. Consulta el <a href="https://agricultura.gencat.cat/" target="_blank" rel="noopener">DAR de la Generalitat</a> para la versión oficial.</p>
+
+  <div class="norm-grid">
+    <NormCard icon="fileText" titulo="Licencia y seguro">
+      <li>Licencia recreativa submarina <strong>obligatoria</strong> (Generalitat, según modalidad 1–4 años).</li>
+      <li>Licencia federativa FECDAS necesaria para adquirir/tener fusil de impulsión mecánica (incluye seguro de RC).</li>
+      <li><strong>Certificado médico oficial</strong> obligatorio para la modalidad submarina (aptitud física para la apnea).</li>
+    </NormCard>
+    <NormCard icon="clock" titulo="Horario y modalidad">
+      <li>Permitida <strong>de sol a sol</strong> (no nocturna).</li>
+      <li>Solo <strong>a pulmón libre</strong> (apnea). Prohibido cualquier equipo autónomo o asistido.</li>
+      <li>Prohibidos los scooters/propulsores submarinos.</li>
+      <li>Edad mínima: 16 años (federativa).</li>
+    </NormCard>
+    <NormCard icon="target" titulo="Material">
+      <li>Fusil cargado <strong>solo dentro del agua</strong>.</li>
+      <li>Boya de señalización <strong>obligatoria</strong>; no alejarse más de 25 m de ella.</li>
+      <li>Linternas pequeñas permitidas; focos potentes prohibidos.</li>
+      <li>Prohibidas puntas explosivas o distintas de flechas estándar.</li>
+    </NormCard>
+    <NormCard icon="quota" titulo="Cupos (aguas interiores)">
+      <li>Máximo <strong>5 kg/día</strong> de peces (el nuevo modelo 2024–2025 lo redujo de 10 a 5 kg).</li>
+      <li>Máximo <strong>5 kg/día</strong> de cefalópodos.</li>
+      <li>Erizos (garotas): máximo <strong>150 unidades/día</strong>, con vedas.</li>
+      <li>Cuotas por especie y día (bag limit) según ARP/3311/2025 — ver ficha de cada una.</li>
+    </NormCard>
+    <NormCard icon="ban" titulo="Especies prohibidas">
+      <li>Atún rojo, pez espada, merluza.</li>
+      <li>Tiburones y rayas (condrictios): prohibida la pesca dirigida y la tenencia a bordo.</li>
+      <li>Todos los cetáceos; corales y especies protegidas (nacra, lapa ferruginosa, etc.).</li>
+      <li>Prohibido el uso de cebo vivo (peces o cefalópodos vivos) en toda la costa.</li>
+    </NormCard>
+    <NormCard icon="mapPin" titulo="Restricciones de zona">
+      <li>Distancia mínima de <strong>100 m</strong> respecto a artes de pesca y a lugares frecuentados por bañistas.</li>
+      <li>En Catalunya, además, <strong>250 m</strong> respecto a las zonas de baño en paralelo a la costa.</li>
+      <li>Prohibida en puertos, zonas de baño balizadas y reservas marinas.</li>
+      <li>Prohibido transportar el fusil cargado fuera del agua.</li>
+    </NormCard>
+  </div>
+
+  <p style="margin-top:20px;font-size:13px;color:var(--text-3)">
+    Tallas mínimas, cuotas diarias (bag limit) y vedas biológicas se fijan en el «nuevo modelo de pesca recreativa» de la Generalitat: un conjunto de resoluciones por litoral — Girona (ARP/3253/2024), <strong style="color:var(--text-2)">Barcelona (ARP/3311/2025)</strong> y Tarragona (ARP/3310/2025) — vigentes hasta el <strong style="color:var(--text-2)">1 de diciembre de 2027</strong> y que regulan ~44 especies. Las fichas usan los valores del anexo de la ARP/3311/2025; algunas cuotas pueden variar ligeramente entre comarcas.
+  </p>
+</section>

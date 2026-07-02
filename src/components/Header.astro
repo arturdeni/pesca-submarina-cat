@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+
+const enlaces = [
+  { href: '#normativa', label: 'Normativa' },
+  { href: '#especies', label: 'Especies' },
+  { href: '#spots', label: 'Zonas' },
+  { href: '#reservas', label: 'Reservas' },
+  { href: '#fuentes', label: 'Fuentes' },
+];
+---
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <Icon name="trident" size={22} class="header-icon" />
+      <div>
+        <div class="header-title">Guía de Pesca Submarina · Catalunya</div>
+        <div class="header-sub">Apnea con arpón · costa catalana · normativa 2025</div>
+      </div>
+    </div>
+    <nav>
+      {enlaces.map((e) => <a href={e.href}>{e.label}</a>)}
+    </nav>
+  </div>
+</header>

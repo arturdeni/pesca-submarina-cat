@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+
+// tipo: 'warn' (ámbar) | 'rojo' | 'info'. El icono por defecto depende del
+// tipo pero puede sobreescribirse (p.ej. aviso rojo con triángulo).
+const { tipo = 'warn', icon, class: className, style } = Astro.props;
+const clases = { warn: 'aviso', rojo: 'aviso aviso-rojo', info: 'aviso aviso-info' };
+const iconoPorTipo = { warn: 'warn', rojo: 'ban', info: 'info' };
+---
+<div class={`${clases[tipo]} ${className ?? ''}`} style={style}>
+  <Icon name={icon ?? iconoPorTipo[tipo]} size={18} />
+  <div class="aviso-content"><slot /></div>
+</div>

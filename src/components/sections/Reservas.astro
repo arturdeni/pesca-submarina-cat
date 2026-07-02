@@ -1,0 +1,27 @@
+---
+import Icon from '../Icon.astro';
+import Aviso from '../Aviso.astro';
+import { RESERVAS } from '../../data/reservas.js';
+---
+<section id="reservas">
+  <h2>
+    <Icon name="shieldBan" size={20} style="color:var(--danger)" />
+    Reservas marinas — pesca prohibida
+  </h2>
+  <Aviso tipo="rojo" icon="warn" style="margin-bottom:24px">
+    <strong>Importante:</strong> Pescar dentro de una reserva marina, incluso por error, conlleva sanciones. Según la Ley 2/2010, en pesca recreativa en aguas interiores las infracciones graves se multan con 151–30.000 € y las muy graves con hasta 70.000 €, además del decomiso del material y la suspensión o retirada de la licencia. Antes de bajar al agua, verifica los <strong>límites exactos</strong> en cartas náuticas y boyas de señalización. Los polígonos pueden incluir varias subzonas con regulaciones diferentes.
+  </Aviso>
+  <div id="grid-reservas">
+    {RESERVAS.map((r) => (
+      <article class="reserva">
+        <div class="reserva-header">
+          <Icon name="ban" size={16} />
+          <h4>{r.nombre}</h4>
+        </div>
+        <div class="reserva-meta"><strong>{r.ubicacion}</strong> · creada {r.creada} · {r.superficie} · gestión: {r.gestion}</div>
+        <p set:html={r.descripcion} />
+        {r.nota && <p class="reserva-nota">{r.nota}</p>}
+      </article>
+    ))}
+  </div>
+</section>

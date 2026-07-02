@@ -1,0 +1,29 @@
+---
+import Icon from '../Icon.astro';
+
+const fuentes = [
+  { url: 'https://agricultura.gencat.cat/', texto: "Departament d'Acció Climàtica, Alimentació i Agenda Rural — Generalitat de Catalunya", extra: ' (normativa oficial).' },
+  { url: 'https://noticias.juridicas.com/base_datos/CCAA/971631-r-arp-3311-2025-de-5-sep-ca-cataluna-fija-las-tallas-minimas-de-captura.html', texto: 'Resolución ARP/3311/2025 — tallas mínimas de captura', extra: '.' },
+  { url: 'https://web.gencat.cat/es/actualitat/detall/Nou-model-de-pesca-sostenible-a-tot-el-litoral-catala', texto: 'Nuevo modelo de pesca sostenible en el litoral catalán — gencat.cat', extra: '.' },
+  { url: 'https://apsbarcelona.com/faq/', texto: 'APS — Associació de Pesca Submarina de Barcelona (FAQ)', extra: '.' },
+  { url: 'https://aesneptuno.org/normativa-pesca/', texto: 'A.E.S. Neptuno — normativa pesca submarina', extra: '.' },
+  { url: 'https://www.societatpescadorsbarcelona.com/es/normatives-de-pesca-maritima-a-catalunya/', texto: 'Societat de Pescadors de Barcelona — normativas', extra: '.' },
+  { url: 'https://magazine.clubnauticcambrils.com/la-generalitat-publica-la-guia-de-especies-de-la-pesca-recreativa-en-la-costa-catalana/?lang=es', texto: 'Guía de especies de pesca recreativa de la costa catalana (Generalitat)', extra: '.' },
+  { url: 'https://www.fishbase.se/', texto: 'FishBase', extra: ' (biología de especies, hábitat, rangos de talla).' },
+  { url: 'https://es.wikipedia.org/', texto: 'Wikipedia — fichas de especies marinas mediterráneas', extra: '.' },
+  { url: 'https://commons.wikimedia.org/', texto: 'Wikimedia Commons', extra: ' (fotografías; cada imagen con su licencia y autor).' },
+  { url: 'https://www.miteco.gob.es/es/costas/temas/proteccion-medio-marino/biodiversidad-marina/espacios-marinos-protegidos/red-reservas-marinas-espana.html', texto: 'MITECO — Red de Reservas Marinas de España', extra: '.' },
+];
+---
+<section id="fuentes">
+  <h2>
+    <Icon name="bookOpen" size={20} />
+    Fuentes y bibliografía
+  </h2>
+  <p>Esta guía se ha compilado contrastando información de las siguientes fuentes. Para datos críticos (normativa, tallas, reservas) consulta siempre la versión oficial vigente.</p>
+  <ul>
+    {fuentes.map((f) => (
+      <li><a href={f.url} target="_blank" rel="noopener">{f.texto}</a>{f.extra}</li>
+    ))}
+  </ul>
+</section>
